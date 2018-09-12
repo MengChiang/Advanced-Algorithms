@@ -4,10 +4,10 @@ import numpy as np
 
 
 class Lecture1TestCase(unittest.TestCase):
-    # def test_GCD_1(self):
-    #     expect = 14
-    #     actual = lecture1.GCD(56, 42)
-    #     self.assertEqual(expect, actual)
+    def test_GCD_1(self):
+        expect = 14
+        actual = lecture1.GCD(56, 42)
+        self.assertEqual(expect, actual)
 
     def test_GCD_2(self):
         expect = 20
