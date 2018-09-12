@@ -41,26 +41,16 @@ def NN(A, start):
 
 
 def Nearest_Neighbor_Tour(array, start):
+    # n = len(array)
 
-    n = len(array)
-
-    result = []
-    cost = None
-    states = [False] * n
-    states[start] = True
+    # result = []
+    # cost = None
+    # states = [False] * n
+    # states[start] = True
 
     # for i in range(n):
     # array[start] =
     # print(i)
     # print(states)
 
-# Nearest_Neighbor_Tour([-21, -5, -1, 0, 1, 3, 11], 3)
 
-
-A = np.array([
-    [0, 2, 1, 2, 2],
-    [2, 0, 2, 1, 1],
-    [1, 2, 0, 1, 2],
-    [2, 1, 1, 0, 2],
-    [2, 1, 2, 2, 0]])
-NN(A, 0)
