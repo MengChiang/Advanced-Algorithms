@@ -1,56 +1,57 @@
 import numpy as np
-import copy
-
 
 def GCD(num1, num2):
     times = 0
     while num2 != 0:
         times += 1
-        print("iterative {0}: {1}, {2}".format(times, num1, num2))
+        print("indexative {0}: {1}, {2}".format(times, num1, num2))
         remainder = num1 % num2
         num1 = num2
         num2 = remainder
     print("GCD = ", num1)
     return num1
 
+def Nearest_Neighbor_Tour(points, start):
 
-def NN(A, start):
-    """Nearest neighbor algorithm.
-    A is an NxN array indicating distance between N locations
-    start is the index of the starting location
-    Returns the path and cost of the found solution
-    """
-    path = [start]
+    result = []
     cost = 0
-    N = A.shape[0]
-    mask = np.ones(N, dtype=bool)  # boolean values indicating which
-    # locations have not been visited
-    mask[start] = False
 
-    for i in range(N-1):
-        last = path[-1]
-        # find minimum of remaining locations
-        next_ind = np.argmin(A[last][mask])
-        next_loc = np.arange(N)[mask][next_ind]  # convert to original location
-        path.append(next_loc)
-        mask[next_loc] = False
-        cost += A[last, next_loc]
+    index = 0
+    times = 1
 
-    print(path, cost)
-    return path, cost
+    while (times < len(points)):
+        index += 1
+        if times == 1:
+            init_point = points[start]
+            result.append(start)
 
+        idx = start+index
+        if idx < len(points):
+            result.append(idx)
+            visit_point = points[idx]
 
-def Nearest_Neighbor_Tour(array, start):
-    # n = len(array)
+            cost += abs(init_point - visit_point)
+            init_point = visit_point
+            times += 1
 
-    # result = []
-    # cost = None
-    # states = [False] * n
-    # states[start] = True
+        idx = start-index
+        if idx >= 0:
+            result.append(idx)
+            visit_point = points[idx]
 
-    # for i in range(n):
-    # array[start] =
-    # print(i)
-    # print(states)
+            cost += abs(init_point - visit_point)
+            init_point = visit_point
+            times += 1
+
+    return (result, cost)
+
+# def Exhaustive(points):
+#     n = len(points)
+
+#     return (result, cost)
+
+def getlist(length):
+    result_list = []
+    
 
 
